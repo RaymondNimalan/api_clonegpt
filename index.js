@@ -17,9 +17,13 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 app.get('/models', async (req, res) => {
-  const response = await openai.listModels();
-  //console.log('response', response.data.data);
-  res.json(response.data.data);
+  try {
+    const response = await openai.listModels();
+    //console.log('response', response.data.data);
+    res.json(response.data.data);
+  } catch (error) {
+    console.log('error from get models request', error);
+  }
 });
 
 app.post('/', async (req, res) => {
