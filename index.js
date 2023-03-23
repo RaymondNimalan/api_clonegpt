@@ -5,7 +5,6 @@ const cors = require('cors');
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
-console.log(process.env);
 
 const port = 7653;
 
